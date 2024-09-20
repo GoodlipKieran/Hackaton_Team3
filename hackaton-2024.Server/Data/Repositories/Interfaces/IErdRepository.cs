@@ -1,0 +1,8 @@
+using hackaton_2024.Server.Data.Entities;
+
+namespace hackaton_2024.Server.Data.Repositories.Interfaces
+{
+    public interface IErdRepository : IRepository<Erd>
+    {
+    }
+}

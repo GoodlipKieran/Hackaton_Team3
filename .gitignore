@@ -1,0 +1,39 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+src/GeoApp.Server/Properties/PublishProfiles/eun-pwc-dev-we-app-bi-01 - Web Deploy.pubxml
+src/GeoApp.Server/Properties/ServiceDependencies/eun-pwc-dev-we-app-bi-01 - Web Deploy/profile.arm.json
+src/geoapp.client/.env
+src/.vscode/
+src/documentations/
+src/MIA.Server/.config
+src/MIA.Server/Properties

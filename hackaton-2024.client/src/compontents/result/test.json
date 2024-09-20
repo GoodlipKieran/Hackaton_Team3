@@ -1,0 +1,795 @@
+{
+    "tables": [
+        {
+            "tableName": "InventoryData",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "SaleRelatedCosts",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "BuildVersion",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "ErrorLog",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "sysdiagrams",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "TABLE1",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "TABLE2",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "Uniqueness",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "CustomerInformation",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "Address",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "Customer",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "CustomerAddress",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "CustomerCity",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "ExchangeRates",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "Product",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "ProductCategory",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "ProductDescription",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "ProductModel",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "ProductModelProductDescription",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "SalesOrderDetail",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tableName": "SalesOrderHeader",
+            "tableComments": "",
+            "x": 0,
+            "y": 0
+        }
+    ],
+    "tableCols": [
+        {
+            "tableName": "InventoryData",
+            "columnName": "ProductCode",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "InventoryData",
+            "columnName": "QtyBalance",
+            "dataType": "int"
+        },
+        {
+            "tableName": "InventoryData",
+            "columnName": "QtyBalanceOnHand",
+            "dataType": "int"
+        },
+        {
+            "tableName": "InventoryData",
+            "columnName": "ReservedPieces",
+            "dataType": "int"
+        },
+        {
+            "tableName": "InventoryData",
+            "columnName": "AverageCost",
+            "dataType": "float"
+        },
+        {
+            "tableName": "SaleRelatedCosts",
+            "columnName": "PO_Number",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "SaleRelatedCosts",
+            "columnName": "CostOfSale",
+            "dataType": "money"
+        },
+        {
+            "tableName": "SaleRelatedCosts",
+            "columnName": "Margin",
+            "dataType": "float"
+        },
+        {
+            "tableName": "BuildVersion",
+            "columnName": "SystemInformationID",
+            "dataType": "tinyint"
+        },
+        {
+            "tableName": "BuildVersion",
+            "columnName": "Database Version",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "BuildVersion",
+            "columnName": "VersionDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "BuildVersion",
+            "columnName": "ModifiedDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "ErrorLog",
+            "columnName": "ErrorLogID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "ErrorLog",
+            "columnName": "ErrorTime",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "ErrorLog",
+            "columnName": "UserName",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "ErrorLog",
+            "columnName": "ErrorNumber",
+            "dataType": "int"
+        },
+        {
+            "tableName": "ErrorLog",
+            "columnName": "ErrorSeverity",
+            "dataType": "int"
+        },
+        {
+            "tableName": "ErrorLog",
+            "columnName": "ErrorState",
+            "dataType": "int"
+        },
+        {
+            "tableName": "ErrorLog",
+            "columnName": "ErrorProcedure",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "ErrorLog",
+            "columnName": "ErrorLine",
+            "dataType": "int"
+        },
+        {
+            "tableName": "ErrorLog",
+            "columnName": "ErrorMessage",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "sysdiagrams",
+            "columnName": "name",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "sysdiagrams",
+            "columnName": "principal_id",
+            "dataType": "int"
+        },
+        {
+            "tableName": "sysdiagrams",
+            "columnName": "diagram_id",
+            "dataType": "int"
+        },
+        {
+            "tableName": "sysdiagrams",
+            "columnName": "version",
+            "dataType": "int"
+        },
+        {
+            "tableName": "sysdiagrams",
+            "columnName": "definition",
+            "dataType": "varbinary"
+        },
+        {
+            "tableName": "TABLE1",
+            "columnName": "ColumnName",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "TABLE1",
+            "columnName": "TableName",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "TABLE1",
+            "columnName": "NonNullRatio",
+            "dataType": "float"
+        },
+        {
+            "tableName": "TABLE2",
+            "columnName": "ColumnName",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "TABLE2",
+            "columnName": "NonNullRatio",
+            "dataType": "float"
+        },
+        {
+            "tableName": "Uniqueness",
+            "columnName": "ColumnName",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "Uniqueness",
+            "columnName": "TableName",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "Uniqueness",
+            "columnName": "NonNullRatio",
+            "dataType": "float"
+        },
+        {
+            "tableName": "CustomerInformation",
+            "columnName": "CustomerCode",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "CustomerInformation",
+            "columnName": "CustomerCity",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "CustomerInformation",
+            "columnName": "ProductsPurchased",
+            "dataType": "int"
+        },
+        {
+            "tableName": "CustomerInformation",
+            "columnName": "Sale_Amount",
+            "dataType": "money"
+        },
+        {
+            "tableName": "CustomerInformation",
+            "columnName": "Profit",
+            "dataType": "money"
+        },
+        {
+            "tableName": "Address",
+            "columnName": "AddressID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "Address",
+            "columnName": "AddressLine1",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Address",
+            "columnName": "AddressLine2",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Address",
+            "columnName": "City",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Address",
+            "columnName": "StateProvince",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Address",
+            "columnName": "CountryRegion",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Address",
+            "columnName": "PostalCode",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Address",
+            "columnName": "rowguid",
+            "dataType": "uniqueidentifier"
+        },
+        {
+            "tableName": "Address",
+            "columnName": "ModifiedDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "CustomerID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "NameStyle",
+            "dataType": "bit"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "Title",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "FirstName",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "MiddleName",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "LastName",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "Suffix",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "CompanyName",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "SalesPerson",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "EmailAddress",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "Phone",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "PasswordHash",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "PasswordSalt",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "rowguid",
+            "dataType": "uniqueidentifier"
+        },
+        {
+            "tableName": "Customer",
+            "columnName": "ModifiedDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "CustomerAddress",
+            "columnName": "CustomerID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "CustomerAddress",
+            "columnName": "AddressID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "CustomerAddress",
+            "columnName": "AddressType",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "CustomerAddress",
+            "columnName": "rowguid",
+            "dataType": "uniqueidentifier"
+        },
+        {
+            "tableName": "CustomerAddress",
+            "columnName": "ModifiedDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "CustomerCity",
+            "columnName": "CustomerName",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "CustomerCity",
+            "columnName": "City",
+            "dataType": "varchar"
+        },
+        {
+            "tableName": "ExchangeRates",
+            "columnName": "CurrencyID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "ExchangeRates",
+            "columnName": "CurrencyCodeFrom",
+            "dataType": "char"
+        },
+        {
+            "tableName": "ExchangeRates",
+            "columnName": "CurrencyCodeTo",
+            "dataType": "char"
+        },
+        {
+            "tableName": "ExchangeRates",
+            "columnName": "ExchangeRate",
+            "dataType": "decimal"
+        },
+        {
+            "tableName": "ExchangeRates",
+            "columnName": "ValidFrom",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "ExchangeRates",
+            "columnName": "ValidTo",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "ProductID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "Name",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "ProductNumber",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "Color",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "StandardCost",
+            "dataType": "money"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "ListPrice",
+            "dataType": "money"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "Size",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "Weight",
+            "dataType": "decimal"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "ProductCategoryID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "ProductModelID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "SellStartDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "SellEndDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "DiscontinuedDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "ThumbNailPhoto",
+            "dataType": "varbinary"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "ThumbnailPhotoFileName",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "rowguid",
+            "dataType": "uniqueidentifier"
+        },
+        {
+            "tableName": "Product",
+            "columnName": "ModifiedDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "ProductCategory",
+            "columnName": "ProductCategoryID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "ProductCategory",
+            "columnName": "ParentProductCategoryID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "ProductCategory",
+            "columnName": "Name",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "ProductCategory",
+            "columnName": "rowguid",
+            "dataType": "uniqueidentifier"
+        },
+        {
+            "tableName": "ProductCategory",
+            "columnName": "ModifiedDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "ProductDescription",
+            "columnName": "ProductDescriptionID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "ProductDescription",
+            "columnName": "Description",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "ProductDescription",
+            "columnName": "rowguid",
+            "dataType": "uniqueidentifier"
+        },
+        {
+            "tableName": "ProductDescription",
+            "columnName": "ModifiedDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "ProductModel",
+            "columnName": "ProductModelID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "ProductModel",
+            "columnName": "Name",
+            "dataType": "nvarchar"
+        },
+        {
+            "tableName": "ProductModel",
+            "columnName": "CatalogDescription",
+            "dataType": "xml"
+        },
+        {
+            "tableName": "ProductModel",
+            "columnName": "rowguid",
+            "dataType": "uniqueidentifier"
+        },
+        {
+            "tableName": "ProductModel",
+            "columnName": "ModifiedDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "ProductModelProductDescription",
+            "columnName": "ProductModelID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "ProductModelProductDescription",
+            "columnName": "ProductDescriptionID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "ProductModelProductDescription",
+            "columnName": "Culture",
+            "dataType": "nchar"
+        },
+        {
+            "tableName": "ProductModelProductDescription",
+            "columnName": "rowguid",
+            "dataType": "uniqueidentifier"
+        },
+        {
+            "tableName": "ProductModelProductDescription",
+            "columnName": "ModifiedDate",
+            "dataType": "datetime"
+        },
+        {
+            "tableName": "SalesOrderDetail",
+            "columnName": "SalesOrderID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "SalesOrderDetail",
+            "columnName": "SalesOrderDetailID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "SalesOrderDetail",
+            "columnName": "OrderQty",
+            "dataType": "smallint"
+        },
+        {
+            "tableName": "SalesOrderDetail",
+            "columnName": "ProductID",
+            "dataType": "int"
+        },
+        {
+            "tableName": "SalesOrderDetail",
+            "columnName": "UnitPrice",
+            "dataType": "money"
+        },
+        {
+            "tableName": "SalesOrderDetail",
+            "columnName": "UnitPriceDiscount",
+            "dataType": "money"
+        },
+        {
+            "tableName": "SalesOrderDetail",
+            "columnName": "LineTotal",
+            "dataType": "numeric"
+        },
+        {
+            "tableName": "SalesOrderDetail",
+            "columnName": "rowguid",
+            "dataType": "uniqueidentifier"
+        },
+        {
+            "tableName": "SalesOrderDetail",
+            "columnName": "ModifiedDate",
+            "dataType": "datetime"
+        }
+    ],
+    "columnRelations": [
+        {
+            "sourceTableName": "CustomerAddress",
+            "sourceColumnName": "CustomerID",
+            "targetTableName": "Customer",
+            "targetColumnName": "CustomerID",
+            "type": "MORE_TO_ONE"
+        },
+        {
+            "sourceTableName": "CustomerAddress",
+            "sourceColumnName": "CustomerID",
+            "targetTableName": "Address",
+            "targetColumnName": "AddressID",
+            "type": "MORE_TO_ONE"
+        },
+        {
+            "sourceTableName": "Product",
+            "sourceColumnName": "ProductID",
+            "targetTableName": "ProductCategory",
+            "targetColumnName": "ProductCategoryID",
+            "type": "MORE_TO_ONE"
+        },
+        {
+            "sourceTableName": "Product",
+            "sourceColumnName": "ProductID",
+            "targetTableName": "ProductModel",
+            "targetColumnName": "ProductModelID",
+            "type": "MORE_TO_ONE"
+        },
+        {
+            "sourceTableName": "ProductCategory",
+            "sourceColumnName": "ProductCategoryID",
+            "targetTableName": "ProductCategory",
+            "targetColumnName": "ProductCategoryID",
+            "type": "MORE_TO_ONE"
+        },
+        {
+            "sourceTableName": "ProductModelProductDescription",
+            "sourceColumnName": "ProductModelID",
+            "targetTableName": "ProductModel",
+            "targetColumnName": "ProductModelID",
+            "type": "MORE_TO_ONE"
+        },
+        {
+            "sourceTableName": "ProductModelProductDescription",
+            "sourceColumnName": "ProductModelID",
+            "targetTableName": "ProductDescription",
+            "targetColumnName": "ProductDescriptionID",
+            "type": "MORE_TO_ONE"
+        },
+        {
+            "sourceTableName": "SalesOrderDetail",
+            "sourceColumnName": "SalesOrderID",
+            "targetTableName": "Product",
+            "targetColumnName": "ProductID",
+            "type": "MORE_TO_ONE"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+.my-graph {
+  .relation-graph {
+    .rel-node-shape-1 {
+      overflow: hidden;
+      border-radius: 10px;
+      padding-bottom: 10px;
+    }
+  }
+  .c-data-table{
+    background-color: #ffffff;
+    border-collapse:collapse;
+    width: 100%;
+  }
+  .c-data-table td,.c-data-table th{
+    border:1px solid #f39930;
+    color: #333333;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .c-data-table td div,.c-data-table th div{
+    background-color: #f39930;
+    color: #ffffff;
+    border-radius: 5px;
+  }
+
+}
