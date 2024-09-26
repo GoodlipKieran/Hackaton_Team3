@@ -4,3 +4,7 @@
 
 azure-functions
 pyodbc
+azure-storage-blob
+pandas
+python-dotenv==1.0.1
+langchain-openai==0.2.0

@@ -3,8 +3,54 @@ import logging
 import pyodbc
 import re
 import json
+from sa_link import get_sa_csv_erd
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+openai_api_key = "30d9470f48874382834b4f69bf974b10"
+openai_deployment_name = "hackathon24"
+openai_url_endpoint = "https://hackathon24-team3-openai.openai.azure.com/"
+account_name = 'eunsthackathon03'
+container_name = 'sample-csv-data'
+sas_token = "sp=ro&st=2024-09-20T13:06:48Z&se=2024-09-20T21:06:48Z&spr=https&sv=2022-11-02&sr=c&sig=Qx9ybmYO%2FudWcKCwQbkNBcNFhzKGhyNqQxZ2COBcnHM%3D"
+
+
+@app.route(route="get_sa_erd")
+def get_sa_erd(req: func.HttpRequest) -> func.HttpResponse:
+    try:
+        req_body = req.get_json()
+
+        try:
+            account_name = req_body['storageAccountName']
+            container_name = req_body['containerName']
+            sas_token = req_body['sasToken']
+            input_tbls_list = req_body['tableNames']
+        except Exception as ex:
+            logging.error(f"Mandatory Credentials Missing. {ex}")
+            raise ValueError(f"Exception occurred: {ex}")
+        result = get_sa_csv_erd(account_name, container_name, sas_token, input_tbls_list)
+
+        # Return a success response
+        return func.HttpResponse(result, status_code=200)
+    except Exception as e:
+        return func.HttpResponse(str(e), status_code=69420)
+
+@app.route(route="get_sa_csv_descriptions")
+def get_sa_csv_descriptions(req: func.HttpRequest) -> func.HttpResponse:
+    try:
+        req_body = req.get_json()
+ 
+        try:
+            tbl_name = req_body['tableName']
+        except Exception as ex:
+            logging.error(f"Mandatory Credentials Missing. {ex}")
+            raise ValueError(f"Exception occurred: {ex}")
+        result = get_sa_csv_descriptions(account_name, container_name, sas_token, tbl_name)
+ 
+        # Return a success response
+        return func.HttpResponse(result, status_code=200)
+    except Exception as e:
+        return func.HttpResponse(str(e), status_code=69420)
 
 @app.route(route="get_sql_metadata")
 def get_sql_metadata(req: func.HttpRequest) -> func.HttpResponse:
@@ -135,14 +181,14 @@ def fetch_table_metadata(connection_string, table_names):
                     # logging.info(metadata[table])
             else:
                 query_columns = f"""
-                    SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE 
-                    FROM INFORMATION_SCHEMA.COLUMNS 
-                    """
+                SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE 
+                FROM INFORMATION_SCHEMA.COLUMNS 
+                """
                 cursor.execute(query_columns)
                 columns = cursor.fetchall()
 
                 query_primary_key = f"""
-                SELECT COLUMN_NAME
+                SELECT tc.TABLE_NAME, COLUMN_NAME
                 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS tc
                 INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE k ON tc.CONSTRAINT_NAME = k.CONSTRAINT_NAME AND tc.CONSTRAINT_SCHEMA = k.CONSTRAINT_SCHEMA AND tc.CONSTRAINT_CATALOG = k.CONSTRAINT_CATALOG
                 WHERE tc.CONSTRAINT_TYPE = 'PRIMARY KEY'
@@ -151,7 +197,7 @@ def fetch_table_metadata(connection_string, table_names):
                 primary_keys = cursor.fetchall()
 
                 query_foreign_keys = f"""
-                SELECT COLUMN_NAME
+                SELECT tc.TABLE_NAME, COLUMN_NAME
                 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS tc
                 INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE k ON tc.CONSTRAINT_NAME = k.CONSTRAINT_NAME AND tc.CONSTRAINT_SCHEMA = k.CONSTRAINT_SCHEMA AND tc.CONSTRAINT_CATALOG = k.CONSTRAINT_CATALOG
                 WHERE tc.CONSTRAINT_TYPE = 'FOREIGN KEY'
@@ -159,12 +205,40 @@ def fetch_table_metadata(connection_string, table_names):
                 cursor.execute(query_foreign_keys)
                 foreign_keys = cursor.fetchall()
 
-                metadata[table] = {
-                    'schema_table': schema_table,
-                    'columns': columns,
-                    'primary_keys': primary_keys,
-                    'foreign_keys': foreign_keys
-                }
+                table_schema_mapping = f"""
+                SELECT DISTINCT TABLE_NAME, CONCAT(TABLE_SCHEMA,'.',TABLE_NAME) AS SCHEMA_TABLE
+                FROM INFORMATION_SCHEMA.COLUMNS 
+                """
+                cursor.execute(table_schema_mapping)
+                table_schema_keys = cursor.fetchall()
+
+                # Process columns
+                for table_name in table_schema_keys:
+                    if table_name[0] not in metadata:
+                        metadata[table_name[0]] = {
+                            'columns': [],
+                            'primary_keys': [],
+                            'foreign_keys': [],
+                            'schema_table': None
+                        }
+
+                        for row in columns:
+                            if row[0] == table_name[0]:
+                                metadata[table_name[0]]['columns'].append(row[1:])
+
+                        for row in primary_keys:
+                            if row[0] == table_name[0]:
+                                metadata[table_name[0]]['primary_keys'].append(row[1:])
+
+                        for row in foreign_keys:
+                            if foreign_keys[0] == table_name[0]:
+                                metadata[table_name[0]]['foreign_keys'].append(row[1:])
+
+                        for row in table_schema_keys:
+                            if row[0] == table_name[0]:
+                                metadata[table_name[0]]['schema_table'] = row[1]
+
+                logging.info(metadata)
 
             query_relationships = f"""
             WITH KeyConstraints AS (
@@ -216,10 +290,11 @@ def fetch_table_metadata(connection_string, table_names):
             ORDER BY
                 FK_Table, FK_Column;
             """
-            cursor.execute(query_relationships)
-            relationships = cursor.fetchall()
-
-            # logging.info(relationships)
+            try:
+                cursor.execute(query_relationships)
+                relationships = cursor.fetchall()
+            except Exception as e:
+                logging.info(relationships)
 
         return metadata, relationships
     except Exception as ex:
@@ -230,8 +305,6 @@ def create_erd_json(table_metadata, relationships):
     table_cols = []
     try:
         for table, details in table_metadata.items():
-            columns_str = '\n'.join([f"{col[0]} ({col[1]})" for col in details['columns']])
-            pk_str = ', '.join([pk[0] for pk in details['primary_keys']])
             node = {
                 "tableName": details['schema_table'],
                 "tableComments": f"",

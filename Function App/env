@@ -1,0 +1,3 @@
+openai_api_key = "30d9470f48874382834b4f69bf974b10"
+openai_deployment_name = "hackathon24"
+openai_url_endpoint = "https://hackathon24-team3-openai.openai.azure.com/"
